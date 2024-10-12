@@ -53,4 +53,16 @@ class SiswaController extends Controller
 
         return redirect('siswa');
     }
+
+    public function search(Request $request) {
+        $search = $request->input('search');
+
+        if (empty($search)) {
+            $data = Siswa::all();
+        } else {
+            $data = Siswa::where('nama', 'like', '%' . $search . '%')->get();
+        }
+
+        return view('pages.siswa.index', compact('data'));
+    }
 }
