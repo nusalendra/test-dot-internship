@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Guru;
+use App\Models\Siswa;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -41,8 +42,10 @@ class GuruController extends Controller
         return redirect('/guru');
     }
 
-    public function show() {
-        return view('pages.guru.detail');
+    public function show($id) {
+        $guru = Guru::find($id);
+        $siswa = Siswa::where('guru_id', $guru->id)->get();
+        return view('pages.guru.detail', compact('guru', 'siswa'));
     }
 
     public function edit($id) {
@@ -71,5 +74,19 @@ class GuruController extends Controller
         $data->delete();
 
         return redirect('/guru');
+    }
+
+    public function search(Request $request) {
+        $search = $request->input('search');
+
+        if (empty($search)) {
+            $data = Guru::all();
+        } else {
+            $data = Guru::where('nama', 'like', '%' . $search . '%')
+                         ->orWhere('mata_pelajaran', 'like', '%' . $search . '%')
+                         ->get();
+        }
+
+        return view('pages.guru.index', compact('data'));
     }
 }
