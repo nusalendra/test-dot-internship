@@ -15,6 +15,9 @@
                       <label for="mata_pelajaran" class="form-label">Mata Pelajaran <span class="text-danger">*</span></label>
                       <input type="text" class="form-control" name="mata_pelajaran" id="mata_pelajaran" required placeholder="Masukkan Mata Pelajaran">
                     </div>
+                    <a href="/guru" class="btn btn-danger">
+                        Kembali
+                    </a>
                     <button type="submit" class="btn btn-primary">Tambah</button>
                   </form>
             </div>

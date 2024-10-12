@@ -23,6 +23,7 @@ Route::get('/dashboard', function () {
 })->middleware(['auth'])->name('dashboard');
 
 Route::get('/guru', [GuruController::class, 'index'])->name('guru');
+Route::get('/guru/search', [GuruController::class, 'search']);
 Route::get('/guru/create', [GuruController::class, 'create']);
 Route::post('/guru', [GuruController::class, 'store']);
 Route::get('/guru/{id}/edit', [GuruController::class, 'edit']);

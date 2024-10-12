@@ -16,6 +16,9 @@
                       <label for="mata_pelajaran" class="form-label">Mata Pelajaran</label>
                       <input type="text" class="form-control" name="mata_pelajaran" id="mata_pelajaran" value="{{ $data->mata_pelajaran }}" placeholder="Masukkan Mata Pelajaran">
                     </div>
+                    <a href="/guru" class="btn btn-danger">
+                        Kembali
+                    </a>
                     <button type="submit" class="btn btn-primary">Simpan</button>
                   </form>
             </div>
