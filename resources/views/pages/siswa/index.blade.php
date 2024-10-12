@@ -7,8 +7,16 @@
                 </a>
             </div>
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg mt-3">
-                <div class="p-3 bg-white border-b border-gray-200 fs-5 font-black">
-                    Data Siswa
+                <div class="d-flex justify-content-between p-3 bg-white border-b border-gray-200 fs-5 font-black">
+                    <p>Data Siswa</p>
+                    <div class="input-group w-25 h-25">
+                        <form action="/siswa/search" method="GET">
+                            <div class="input-group">
+                                <input type="text" name="search" class="form-control" placeholder="Search" aria-label="Search">
+                                <button class="btn btn-primary" type="submit">Cari</button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
                 <div class="mx-3">
                     <table class="table table-striped">

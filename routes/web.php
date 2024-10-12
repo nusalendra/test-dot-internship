@@ -32,6 +32,7 @@ Route::put('/guru/{id}', [GuruController::class, 'update']);
 Route::delete('/guru/{id}', [GuruController::class, 'destroy']);
 
 Route::get('/siswa', [SiswaController::class, 'index'])->name('siswa');
+Route::get('/siswa/search', [SiswaController::class, 'search']);
 Route::get('/siswa/create', [SiswaController::class, 'create']);
 Route::post('/siswa', [SiswaController::class, 'store']);
 Route::get('/siswa/{id}/edit', [SiswaController::class, 'edit']);
