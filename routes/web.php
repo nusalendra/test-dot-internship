@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\GuruController;
+use App\Http\Controllers\SiswaController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,5 +29,13 @@ Route::get('/guru/{id}/edit', [GuruController::class, 'edit']);
 Route::get('/guru/{id}', [GuruController::class, 'show']);
 Route::put('/guru/{id}', [GuruController::class, 'update']);
 Route::delete('/guru/{id}', [GuruController::class, 'destroy']);
+
+Route::get('/siswa', [SiswaController::class, 'index'])->name('siswa');
+Route::get('/siswa/create', [SiswaController::class, 'create']);
+Route::post('/siswa', [SiswaController::class, 'store']);
+Route::get('/siswa/{id}/edit', [SiswaController::class, 'edit']);
+Route::get('/siswa/{id}', [SiswaController::class, 'show']);
+Route::put('/siswa/{id}', [SiswaController::class, 'update']);
+Route::delete('/siswa/{id}', [SiswaController::class, 'destroy']);
 
 require __DIR__.'/auth.php';

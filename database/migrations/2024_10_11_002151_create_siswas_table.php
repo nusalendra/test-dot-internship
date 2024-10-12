@@ -17,7 +17,6 @@ class CreateSiswasTable extends Migration
             $table->id();
             $table->foreignId('guru_id')->constrained('gurus');
             $table->string('nama');
-            $table->string('kelas');
             $table->timestamps();
         });
     }

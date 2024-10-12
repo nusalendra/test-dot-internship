@@ -9,7 +9,7 @@ class Siswa extends Model
 {
     use HasFactory;
     protected $table = 'siswas';
-    protected $fillable = ['guru_id', 'nama', 'kelas'];
+    protected $fillable = ['guru_id', 'nama'];
     protected $guarded = [];
 
     public function guru() {
