@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
+use App\Http\Controllers\GuruController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,5 +20,13 @@ Route::get('/', [AuthenticatedSessionController::class, 'create']);
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
+
+Route::get('/guru', [GuruController::class, 'index'])->name('guru');
+Route::get('/guru/create', [GuruController::class, 'create']);
+Route::post('/guru', [GuruController::class, 'store']);
+Route::get('/guru/{id}/edit', [GuruController::class, 'edit']);
+Route::get('/guru/{id}', [GuruController::class, 'show']);
+Route::put('/guru/{id}', [GuruController::class, 'update']);
+Route::delete('/guru/{id}', [GuruController::class, 'destroy']);
 
 require __DIR__.'/auth.php';
