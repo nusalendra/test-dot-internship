@@ -18,26 +18,25 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [AuthenticatedSessionController::class, 'create']);
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
 
-Route::get('/guru', [GuruController::class, 'index'])->name('guru');
-Route::get('/guru/search', [GuruController::class, 'search']);
-Route::get('/guru/create', [GuruController::class, 'create']);
-Route::post('/guru', [GuruController::class, 'store']);
-Route::get('/guru/{id}/edit', [GuruController::class, 'edit']);
-Route::get('/guru/{id}', [GuruController::class, 'show']);
-Route::put('/guru/{id}', [GuruController::class, 'update']);
-Route::delete('/guru/{id}', [GuruController::class, 'destroy']);
+Route::group(['middleware' => ['auth']], function () {
+    Route::get('/guru', [GuruController::class, 'index'])->name('guru');
+    Route::get('/guru/search', [GuruController::class, 'search']);
+    Route::get('/guru/create', [GuruController::class, 'create']);
+    Route::post('/guru', [GuruController::class, 'store']);
+    Route::get('/guru/{id}/edit', [GuruController::class, 'edit']);
+    Route::get('/guru/{id}', [GuruController::class, 'show']);
+    Route::put('/guru/{id}', [GuruController::class, 'update']);
+    Route::delete('/guru/{id}', [GuruController::class, 'destroy']);
 
-Route::get('/siswa', [SiswaController::class, 'index'])->name('siswa');
-Route::get('/siswa/search', [SiswaController::class, 'search']);
-Route::get('/siswa/create', [SiswaController::class, 'create']);
-Route::post('/siswa', [SiswaController::class, 'store']);
-Route::get('/siswa/{id}/edit', [SiswaController::class, 'edit']);
-Route::get('/siswa/{id}', [SiswaController::class, 'show']);
-Route::put('/siswa/{id}', [SiswaController::class, 'update']);
-Route::delete('/siswa/{id}', [SiswaController::class, 'destroy']);
+    Route::get('/siswa', [SiswaController::class, 'index'])->name('siswa');
+    Route::get('/siswa/search', [SiswaController::class, 'search']);
+    Route::get('/siswa/create', [SiswaController::class, 'create']);
+    Route::post('/siswa', [SiswaController::class, 'store']);
+    Route::get('/siswa/{id}/edit', [SiswaController::class, 'edit']);
+    Route::get('/siswa/{id}', [SiswaController::class, 'show']);
+    Route::put('/siswa/{id}', [SiswaController::class, 'update']);
+    Route::delete('/siswa/{id}', [SiswaController::class, 'destroy']);
+});
 
 require __DIR__.'/auth.php';
